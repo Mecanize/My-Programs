@@ -1,0 +1,67 @@
+using System;
+using System.Globalization;
+
+namespace Mini_Game
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to Rock, Paper, Scissors");
+            Console.WriteLine("Press 'Enter' and choose your weapon!");
+            Console.ReadKey();
+
+            string answer = "y";
+            while (answer == "yes" || answer == "y")
+            {
+                Console.Clear();
+                game();
+                Console.WriteLine("Do you want to play again?");
+                answer = Console.ReadLine().ToLower();
+                Console.Clear();
+            }
+            Console.WriteLine("Thank you for playing");
+            Console.ReadKey();
+        }
+
+        private static void game()
+        {
+            Console.Write("Player: ");
+            string playerChoice = Console.ReadLine().ToLower();
+
+            if (playerChoice == "rock" || playerChoice == "paper" || playerChoice == "scissors")
+            {
+                pickWinner(playerChoice, Convert.ToString(pickCpuChoice()));
+
+            }
+            else
+            {
+                Console.Clear();
+                game();
+            }
+        }
+
+        public static string pickCpuChoice()
+        {
+            // Pick random choice for the cpu
+            Random rand = new Random();
+            string[] choice = { "rock", "paper", "scissors" };
+            int optionNum = rand.Next(0, 2);
+            string cpuChoice = choice[optionNum];
+            Console.WriteLine("CPU: " + cpuChoice);
+            return cpuChoice;
+        }
+
+        public static void pickWinner(string playerChoice, string cpuChoice)
+        {
+            // Declare Winner
+            if (playerChoice == "rock" && cpuChoice == "scissors" ||
+                playerChoice == "paper" && cpuChoice == "rock" ||
+                playerChoice == "scissors" && cpuChoice == "paper")
+                Console.WriteLine("You Won!!");
+            else if (playerChoice == cpuChoice)
+                Console.WriteLine("Draw :|");
+            else
+                Console.WriteLine("You Lose!!");
+        }
+    }
+}
