@@ -45,7 +45,7 @@ namespace Mini_Game
             // Pick random choice for the cpu
             Random rand = new Random();
             string[] choice = { "rock", "paper", "scissors" };
-            int optionNum = rand.Next(0, 2);
+            int optionNum = rand.Next(0, 3);
             string cpuChoice = choice[optionNum];
             Console.WriteLine("CPU: " + cpuChoice);
             return cpuChoice;
