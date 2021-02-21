@@ -1,0 +1,99 @@
+using System;
+
+namespace DARK_SOULS_1_CHALLENGE_RANDOMIZER
+{
+    class Program
+    {
+        public static Random random = new Random();
+        static void Main(string[] args)
+        {            
+            // Window Config
+            Config();
+
+            Console.WriteLine("Welcome to my Dark Souls 1 Randomizer.");
+            Console.WriteLine("Enjoy my challenge to you.");
+            Console.WriteLine("--------------------------------");
+
+            // Type of challenge
+            Challenge();
+
+            //Handicap
+            Handicap();
+
+            Console.ReadKey();
+        }
+        static void Config()
+        {
+            Console.Title = "Dark Souls 1 Challenge Randomizer";
+            Console.WindowWidth = 60;
+            Console.WindowHeight = 30;
+        }
+        static void Challenge()
+        {
+            string[] Type = { "Dagger Only", "Fists Only", "Miracles Only", "Spells Only", "Soul Level 1",
+                                "Use What You See", "Bow Only", "Starting Weapon Only", "Kill What You See"};
+            int randomChoice = random.Next(0, 9);
+            string choice = Type[randomChoice];
+            Console.WriteLine("Challenge: " + choice);
+            Console.WriteLine("--------------------------------");
+        }
+        static void Handicap()
+        {
+            string[] Type = { "No Estus", "No Shield", "No Armor", "No Buffs", "No Humanity", 
+                                "No Dodge", "No Sprinting", "Slow Walk", "Fat Roll Only"};
+            int randomChoice = random.Next(0, 9);
+            int randomChoice2 = random.Next(0, 9);
+            int randomChoice3 = random.Next(0, 9);
+
+            // Separate no dodge from fat roll only
+            
+            // Random Choice 1
+            if( randomChoice == 5 && randomChoice2 == 8 || randomChoice == 5 && randomChoice3 == 8)
+                randomChoice = random.Next(0, 9);
+
+            // Random Choice 2
+            if( randomChoice2 == 5 && randomChoice == 8 || randomChoice2 == 5 && randomChoice3 == 8)
+                randomChoice2 = random.Next(0, 9);
+
+            // Random Choice 3
+            if (randomChoice3 == 5 && randomChoice == 8 || randomChoice3 == 5 && randomChoice2 == 8)
+                randomChoice3 = random.Next(0, 9);
+
+            // Separate no armor from fat roll only
+            // Random Choice 1
+            if (randomChoice == 2 && randomChoice2 == 8 || randomChoice == 2 && randomChoice3 == 8)
+                randomChoice = random.Next(0, 9);
+
+            // Random Choice 2
+            if (randomChoice2 == 2 && randomChoice == 8 || randomChoice2 == 2 && randomChoice3 == 8)
+                randomChoice2 = random.Next(0, 9);
+
+            // Random Choice 3
+            if (randomChoice3 == 2 && randomChoice == 8 || randomChoice3 == 2 && randomChoice2 == 8)
+                randomChoice3 = random.Next(0, 9);
+
+            // Same Values
+            // Random Choice 1
+            if (randomChoice == randomChoice2 || randomChoice == randomChoice3)
+                randomChoice = random.Next(0, 9);
+
+            // Random Choice 2
+            if (randomChoice2 == randomChoice || randomChoice2 == randomChoice3)
+                randomChoice2 = random.Next(0, 9);
+
+            // Random Choice 3
+
+            if (randomChoice3 == randomChoice || randomChoice3 == randomChoice2)
+                randomChoice3 = random.Next(0, 9);
+
+            string choice = Type[randomChoice];
+            string choice2 = Type[randomChoice2];
+            string choice3 = Type[randomChoice3];
+
+            Console.WriteLine("Handicap 1: " + choice);
+            Console.WriteLine("Handicap 2: " + choice2);
+            Console.WriteLine("Handicap 3: " + choice3);
+            Console.WriteLine("--------------------------------");
+        }
+    }
+}
