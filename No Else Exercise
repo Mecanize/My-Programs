@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace No_Else_Challenge
+{
+    class Person
+    {
+        public int age;
+        public string name;
+    }
+
+    class Program
+    {
+        static void Main(string[] args) => UserData();
+
+        private static void UserData()
+        {
+            Console.WriteLine("Welcome to my Final Fantasy Theme Park");
+            Console.ReadKey();
+            Console.Clear();
+            Person person = new Person();
+            Console.Write("Please type your name: ");
+            person.name = Console.ReadLine();
+            Console.Write("Please type age: ");
+            person.age = int.Parse(Console.ReadLine());
+            Console.Clear();
+            int result = CanEnterPark(person.age);
+            TypeOfRide(person.name, result);
+        }
+
+        private static int CanEnterPark(int age)
+        {
+            if (age <= 0) return 1;
+            if (age < 18) return 2;
+            if (age >= 18 && age <= 25) return 3;
+            if (age > 25 && age <= 40) return 4;
+            if (age > 40 && age <= 60) return 5;
+            if (age > 60 && age <= 100) return 6;
+            if (age > 100) return 7;
+            return 0;
+        }
+
+        private static void TypeOfRide(string heroName, int result)
+        {
+            if (result == 0) Console.WriteLine(heroName + " die fiend");
+            if (result == 1) Console.WriteLine(heroName + "welcome to the Dream World");
+            if (result == 2) Console.WriteLine(heroName + "welcome to Eos");
+            if (result == 3) Console.WriteLine(heroName + "welcome to Gran Pulse");
+            if (result == 4) Console.WriteLine(heroName + "welcome to Zanakard");
+            if (result == 5) Console.WriteLine(heroName + "welcome to Midgard");
+            if (result == 6) Console.WriteLine(heroName + "welcome to Cornelia");
+            if (result == 7) Console.WriteLine("All heroes standby, Omega Weapons are attacking our homes... \nAll is lost " + heroName + "...");
+            Console.ReadKey();
+        }
+    }
+}
