@@ -46,12 +46,12 @@ namespace No_Else_Challenge
         private static void TypeOfRide(string heroName, int result)
         {
             if (result == 0) Console.WriteLine(heroName + " die fiend");
-            if (result == 1) Console.WriteLine(heroName + "welcome to the Dream World");
-            if (result == 2) Console.WriteLine(heroName + "welcome to Eos");
-            if (result == 3) Console.WriteLine(heroName + "welcome to Gran Pulse");
-            if (result == 4) Console.WriteLine(heroName + "welcome to Zanakard");
-            if (result == 5) Console.WriteLine(heroName + "welcome to Midgard");
-            if (result == 6) Console.WriteLine(heroName + "welcome to Cornelia");
+            if (result == 1) Console.WriteLine(heroName + " welcome to the Dream World");
+            if (result == 2) Console.WriteLine(heroName + " welcome to Eos");
+            if (result == 3) Console.WriteLine(heroName + " welcome to Gran Pulse");
+            if (result == 4) Console.WriteLine(heroName + " welcome to Zanakard");
+            if (result == 5) Console.WriteLine(heroName + " welcome to Midgard");
+            if (result == 6) Console.WriteLine(heroName + " welcome to Cornelia");
             if (result == 7) Console.WriteLine("All heroes standby, Omega Weapons are attacking our homes... \nAll is lost " + heroName + "...");
             Console.ReadKey();
         }
