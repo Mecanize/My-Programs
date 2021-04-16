@@ -14,6 +14,7 @@ namespace No_Else_Challenge
 
     class Program
     {
+        public static bool CanEnter;
         static void Main(string[] args) => UserData();
 
         private static void UserData()
@@ -26,33 +27,78 @@ namespace No_Else_Challenge
             person.name = Console.ReadLine();
             Console.Write("Please type age: ");
             person.age = int.Parse(Console.ReadLine());
+            CanEnterPark(person.age);
             Console.Clear();
-            int result = CanEnterPark(person.age);
-            TypeOfRide(person.name, result);
+            if (CanEnter)
+            {
+                int result = ParkTheme(person.age);
+                TypeOfRide(person.name, result);
+            }
+
+            if(!CanEnter)
+            {
+                Console.WriteLine("You enter my park, begone!!!!");
+                Console.ReadLine();
+            }
         }
 
-        private static int CanEnterPark(int age)
+        private static void CanEnterPark(int age)
         {
-            if (age <= 0) return 1;
-            if (age < 18) return 2;
-            if (age >= 18 && age <= 25) return 3;
-            if (age > 25 && age <= 40) return 4;
-            if (age > 40 && age <= 60) return 5;
-            if (age > 60 && age <= 100) return 6;
-            if (age > 100) return 7;
+            if (age < 10) CanEnter = true;
+            CanEnter = false;
+        }
+
+        private static int ParkTheme(int age)
+        {
+            if (age >= 10) return 1;
+            if (age >= 18 && age <= 25) return 2;
+            if (age > 25 && age <= 40) return 3;
+            if (age > 40 && age <= 60) return 4;
+            if (age > 60 && age <= 100) return 5;
+            if (age > 100) return 6;
+
             return 0;
         }
 
         private static void TypeOfRide(string heroName, int result)
         {
-            if (result == 0) Console.WriteLine(heroName + " die fiend");
-            if (result == 1) Console.WriteLine(heroName + " welcome to the Dream World");
-            if (result == 2) Console.WriteLine(heroName + " welcome to Eos");
-            if (result == 3) Console.WriteLine(heroName + " welcome to Gran Pulse");
-            if (result == 4) Console.WriteLine(heroName + " welcome to Zanakard");
-            if (result == 5) Console.WriteLine(heroName + " welcome to Midgard");
-            if (result == 6) Console.WriteLine(heroName + " welcome to Cornelia");
-            if (result == 7) Console.WriteLine("All heroes standby, Omega Weapons are attacking our homes... \nAll is lost " + heroName + "...");
+            string welcome = heroName + " welcome to ";
+            string choice = Convert.ToString(result);
+
+            switch (choice)
+            {
+                case "1":
+                    {
+                        Console.WriteLine(welcome + " Eos");
+                        break;
+                    }
+                case "2":
+                    {
+                        Console.WriteLine(welcome + " Gran Pulse");
+                        break;
+                    }
+                case "3":
+                    {
+                        Console.WriteLine(welcome + " Zanakard");
+                        break;
+                    }
+                case "4":
+                    {
+                        Console.WriteLine(welcome + " Midgard");
+                        break;
+                    }
+                case "5":
+                    {
+                        Console.WriteLine(welcome + " Cornelia");
+                        break;
+                    }
+                case "6":
+                    {
+                        Console.WriteLine("All heroes standby, Omega Weapons are attacking our homes... \nAll is lost " + heroName + "...");
+                        break;
+                    }
+
+            }
             Console.ReadKey();
         }
     }
