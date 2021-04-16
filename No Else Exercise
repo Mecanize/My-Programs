@@ -30,13 +30,14 @@ namespace No_Else_Challenge
             person.age = int.Parse(Console.ReadLine());
             CanEnterPark(person.age);
             Console.Clear();
-            if (CanEnter)
+            
+            if (CanEnter == true)
             {
                 int result = ParkTheme(person.age);
                 TypeOfRide(person.name, result);
             }
 
-            if(!CanEnter)
+            if(CanEnter == false)
             {
                 Console.WriteLine("You cannot enter my park, begone!!!!");
                 Console.ReadLine();
