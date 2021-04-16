@@ -38,7 +38,7 @@ namespace No_Else_Challenge
 
             if(!CanEnter)
             {
-                Console.WriteLine("You enter my park, begone!!!!");
+                Console.WriteLine("You cannot enter my park, begone!!!!");
                 Console.ReadLine();
                 Console.Clear();
                 UserData();
