@@ -71,27 +71,27 @@ namespace No_Else_Challenge
             {
                 case "1":
                     {
-                        Console.WriteLine(welcome + " Eos");
+                        Console.WriteLine(welcome + "Eos");
                         break;
                     }
                 case "2":
                     {
-                        Console.WriteLine(welcome + " Gran Pulse");
+                        Console.WriteLine(welcome + "Gran Pulse");
                         break;
                     }
                 case "3":
                     {
-                        Console.WriteLine(welcome + " Zanakard");
+                        Console.WriteLine(welcome + "Zanakard");
                         break;
                     }
                 case "4":
                     {
-                        Console.WriteLine(welcome + " Midgard");
+                        Console.WriteLine(welcome + "Midgard");
                         break;
                     }
                 case "5":
                     {
-                        Console.WriteLine(welcome + " Cornelia");
+                        Console.WriteLine(welcome + "Cornelia");
                         break;
                     }
                 case "6":
