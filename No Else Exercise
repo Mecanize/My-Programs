@@ -40,6 +40,8 @@ namespace No_Else_Challenge
             {
                 Console.WriteLine("You enter my park, begone!!!!");
                 Console.ReadLine();
+                Console.Clear();
+                UserData();
             }
         }
 
