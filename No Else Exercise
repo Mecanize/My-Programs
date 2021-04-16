@@ -15,7 +15,6 @@ namespace No_Else_Challenge
     class Program
     {
         public static bool CanEnter;
-        
         static void Main(string[] args) => UserData();
 
         private static void UserData()
@@ -30,7 +29,6 @@ namespace No_Else_Challenge
             person.age = int.Parse(Console.ReadLine());
             CanEnterPark(person.age);
             Console.Clear();
-            
             if (CanEnter == true)
             {
                 int result = ParkTheme(person.age);
@@ -41,13 +39,15 @@ namespace No_Else_Challenge
             {
                 Console.WriteLine("You cannot enter my park, begone!!!!");
                 Console.ReadLine();
+                Console.Clear();
+                UserData();
             }
         }
 
         private static void CanEnterPark(int age)
         {
-            if (age < 10) CanEnter = true;
-            CanEnter = false;
+            if (age < 10) CanEnter = false;
+            if (age >=10) CanEnter = true;
         }
 
         private static int ParkTheme(int age)
