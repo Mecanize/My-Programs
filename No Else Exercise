@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace No_Else_Challenge
 {
@@ -14,7 +10,6 @@ namespace No_Else_Challenge
 
     class Program
     {
-        public static bool CanEnter;
         static void Main(string[] args) => UserData();
 
         private static void UserData()
@@ -27,38 +22,29 @@ namespace No_Else_Challenge
             person.name = Console.ReadLine();
             Console.Write("Please type age: ");
             person.age = int.Parse(Console.ReadLine());
-            CanEnterPark(person.age);
+            bool canEnter = (person.age >= 10) ? true : false;
+            int result = ParkTheme(person.age);
             Console.Clear();
-            if (CanEnter == true)
-            {
-                int result = ParkTheme(person.age);
-                TypeOfRide(person.name, result);
-            }
 
-            if(CanEnter == false)
+            if (!canEnter)
             {
                 Console.WriteLine("You cannot enter my park, begone!!!!");
                 Console.ReadLine();
                 Console.Clear();
                 UserData();
             }
-        }
 
-        private static void CanEnterPark(int age)
-        {
-            if (age < 10) CanEnter = false;
-            if (age >=10) CanEnter = true;
+            TypeOfRide(person.name, result);
         }
 
         private static int ParkTheme(int age)
         {
-            if (age >= 10) return 1;
-            if (age >= 18 && age <= 25) return 2;
-            if (age > 25 && age <= 40) return 3;
-            if (age > 40 && age <= 60) return 4;
-            if (age > 60 && age <= 100) return 5;
-            if (age > 100) return 6;
-
+            if (age >= 10 && age < 18) return 1;
+            if (age >= 18 && age < 25) return 2;
+            if (age >= 25 && age < 40) return 3;
+            if (age >= 40 && age < 60) return 4;
+            if (age >= 60 && age < 100) return 5;
+            if (age >= 100) return 6;
             return 0;
         }
 
